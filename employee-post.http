@@ -1,0 +1,11 @@
+### Request to create an employee
+POST http://localhost:8181/employee
+Content-Type: application/json
+
+{
+  "id": "2",
+  "firstName": "John",
+  "lastName": "Doe",
+  "middleName": "D",
+  "emailId": "john.Doe@emal.com"
+}

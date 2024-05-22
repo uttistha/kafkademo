@@ -1,0 +1,35 @@
+topic:
+  name: employee
+server:
+  port: 8181
+spring:
+  application:
+    name: kafka-demo
+  kafka:
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+      retries: 3
+      properties:
+        schema:
+          registry:
+            url: http://localhost:8081
+    consumer:
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
+      properties:
+        spring.json.trusted.packages: '*'
+        schema:
+          registry:
+            url: http://localhost:8081
+        specific:
+          avro:
+            reader: true
+      group-id: "uttista1"
+    bootstrap-servers: localhost:9092
+
+
+
+
+
+
